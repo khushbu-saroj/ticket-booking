@@ -40,7 +40,7 @@ class RegistrationController extends Controller
       if($data){
         Auth::login($data);
         if($data->status == '0'){
-          $shows = Show::with('movie')->whereDate('showtime',Carbon::now()->format('Y-m-d'))->get();
+          $shows = Show::with('movie')->whereDate('showtime',Carbon::now()->format('Y-m-d'))->paginate(5);
           return view('dashboard',compact('shows'));
         }
     
@@ -55,7 +55,7 @@ class RegistrationController extends Controller
     }
 
     public function dashboard(){
-      $shows = Show::with('movie')->whereDate('showtime',Carbon::now()->format('Y-m-d'))->get();
+      $shows = Show::with('movie')->whereDate('showtime',Carbon::now()->format('Y-m-d'))->paginate(5);
       return view('dashboard',compact('shows'));
     }
 

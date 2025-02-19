@@ -75,15 +75,20 @@ use Carbon\Carbon;
 </button></a></td>
         </tr>
         @endforeach
+        <tr>
+        <td colspan="4" class="py-2 px-4 text-center">
+    <div class="flex justify-center">
+    {{ $shows->links('pagination::tailwind') }}
+    </div>
+        </td>
+    </tr>
     </tbody>
 </table>
 
-        <!-- <p></p>
-        <p></p>
        
         
               
-        -->
+        
 @else
             <p>No movies available.</p>
         @endif
